@@ -1,0 +1,90 @@
+.form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container {
+  padding: 0 10px;
+}
+
+.mat-radio-button {
+  margin-right: 20px;
+}
+
+.rover-name {
+  text-align: center;
+  font-size: larger;
+  color: darkgoldenrod;
+}
+
+.col-4 {
+  width: 33.33%;
+}
+
+.field {
+  width: 100%;
+  font-family: inherit;
+}
+
+.form-container {
+  position: fixed;
+  width: 75%;
+  top: 0;
+  left: 0%;
+  z-index: 2;
+  transform: translate(3.5%, 0);
+  background-color: white;
+}
+
+.bg-container {
+  position: absolute;
+  width: 100%;
+  height: 272.05px;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transform: translate(20%, 0);
+  background-color: white;
+}
+
+.photos {
+  margin-top: 300px;
+}
+
+.radio-grp {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.loader-div {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.photos-loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

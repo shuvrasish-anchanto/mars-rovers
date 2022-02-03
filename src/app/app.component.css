@@ -1,0 +1,23 @@
+.container {
+  width: 100vw;
+  display: flex;
+}
+
+/* .side {
+  height: 100vh;
+} */
+
+.navbar {
+  position: fixed;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #303030;
+}
+
+.main {
+  width: 80%;
+  margin-left: 20%;
+}

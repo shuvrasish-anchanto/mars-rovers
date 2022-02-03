@@ -1,0 +1,102 @@
+<div *ngIf="!manifest" class="loader-div">
+  <p class="text-center loader"></p>
+</div>
+
+<div class="container" *ngIf="manifest">
+  <div class="bg-container">
+    <div class="form-container">
+      <div class="rover-name">
+        <h1>{{ selectedRoverName }}</h1>
+      </div>
+
+      <div class="form">
+        <div class="col-4">
+          <mat-form-field appearance="fill" class="field">
+            <mat-label>Select a Camera</mat-label>
+            <mat-select
+              [(value)]="selectedCamera"
+              (selectionChange)="getPictures('camera')"
+            >
+              <mat-option *ngFor="let camera of cameras" [value]="camera.value">
+                {{ camera.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-4">
+          <mat-form-field appearance="fill" class="field">
+            <mat-label>Earth Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              [(ngModel)]="selectedEarthDate"
+              [min]="manifest.landing_date"
+              [max]="maxEarthDate"
+              (dateChange)="getPictures('earthDate')"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="col-4">
+          <mat-form-field appearance="fill" class="field">
+            <mat-label>Martian Sol</mat-label>
+            <input
+              matInput
+              [(ngModel)]="selectedSol"
+              type="number"
+              min="0"
+              max="manifest.max_sol"
+              (keyup)="getPictures()"
+            />
+            <mat-hint>From 0 to {{ manifest.max_sol }}</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-radio-group class="mb-3 radio-grp" [(ngModel)]="searchBy">
+        <mat-radio-button value="earthDate" style="font-family: 'Poppins'"
+          >Search by Earth Date</mat-radio-button
+        >
+        <mat-radio-button value="sol" style="font-family: 'Poppins'"
+          >Search by Sol (martian rotation or day)</mat-radio-button
+        >
+      </mat-radio-group>
+
+      <mat-paginator
+        [length]="totalPhotos"
+        [pageSize]="25"
+        [pageSizeOptions]="[25]"
+        (page)="changePage($event)"
+      >
+      </mat-paginator>
+
+      <div class="photos-loader">
+        <p class="text-center loader" *ngIf="!photos"></p>
+      </div>
+
+      <div
+        class="alert alert-info text-center"
+        role="alert"
+        *ngIf="photos?.length === 0"
+      >
+        <em>Sorry no photos have been received for this day.</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="photos">
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <ng-container *ngFor="let photo of photos">
+        <mat-grid-tile>
+          <a class="rover-img" href="{{ photo.img_src }}" target="_blank">
+            <img src="{{ photo.img_src }}" style="width: 100%; height: 100%" />
+          </a>
+        </mat-grid-tile>
+      </ng-container>
+    </mat-grid-list>
+  </div>
+</div>

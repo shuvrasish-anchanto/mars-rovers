@@ -1,0 +1,21 @@
+.main-container {
+  text-align: center;
+  height: 100vh;
+  background-image: url("../../../assets/bg.png");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  background: white;
+  border: 3px solid brown;
+  border-radius: 10px;
+  width: 600px;
+  padding: 30px;
+}
+
+.paragraph {
+  text-align: left;
+}

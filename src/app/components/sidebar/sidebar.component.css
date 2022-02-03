@@ -1,0 +1,43 @@
+.rover-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.select-rover h3 {
+  margin: 0 auto 20px auto;
+}
+
+.rover-option a {
+  color: black;
+  font-size: 1.5rem;
+  margin: 5px auto;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home a {
+  background-color: darkgoldenrod;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  margin: 5px auto;
+}
+
+.home a span {
+  padding-right: 10px;
+}
+
+button {
+  font-family: inherit;
+}
+
+.select-rover {
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+}
